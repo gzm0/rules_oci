@@ -1,0 +1,22 @@
+"Bazel dependencies"
+
+# ok (coreutils 0.0.23)
+# bazel_dep(name = "aspect_bazel_lib", version = "2.7.2")
+#
+# Fails (coreutils 0.0.26)
+# https://github.com/bazel-contrib/bazel-lib/pull/706
+bazel_dep(name = "aspect_bazel_lib", version = "2.7.3")
+
+bazel_dep(name = "rules_oci", version = "0.0.0")
+
+local_path_override(
+    module_name = "rules_oci",
+    path = "../..",
+)
+
+# Override for patched aspect_bazel_lib with coreutis 0.0.23
+#
+# local_path_override(
+#     module_name = "aspect_bazel_lib",
+#     path = "../../../bazel-lib",
+# )

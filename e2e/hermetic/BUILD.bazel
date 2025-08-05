@@ -1,0 +1,12 @@
+load("@rules_oci//oci:defs.bzl", "oci_image", "oci_load")
+
+oci_image(
+    name = "fake-base",
+    architecture = "amd64",
+    os = "linux",
+)
+
+oci_image(
+    name = "image",
+    base = ":fake-base",
+)
